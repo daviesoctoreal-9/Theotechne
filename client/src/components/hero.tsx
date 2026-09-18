@@ -1,3 +1,7 @@
+import { startLogin } from "@/const";
+import { Button } from "@/components/ui/button";
+
+
 export default function Hero() {
   return (
     <section
@@ -42,16 +46,16 @@ export default function Hero() {
           </p>
 
           <div className="mt-6 flex flex-col items-stretch gap-3 sm:mt-7 sm:flex-row sm:flex-wrap sm:items-center">
-            <a
-              href="#work"
-              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-[#1769d5] px-6 text-sm font-bold text-white shadow-[0_10px_24px_rgba(23,105,213,0.18)] transition hover:-translate-y-0.5 hover:bg-[#0f58b9] focus:outline-none focus:ring-2 focus:ring-[#1769d5] focus:ring-offset-2 sm:w-auto"
-            >
-              Begin Your Enrolment
-              <span aria-hidden="true">{'->'}</span>
-            </a>
+            <Button
+  onClick={() => startLogin()}
+  className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-[#1769d5] px-6 text-sm font-bold text-white shadow-[0_10px_24px_rgba(23,105,213,0.18)] transition hover:-translate-y-0.5 hover:bg-[#0f58b9] focus:outline-none focus:ring-2 focus:ring-[#1769d5] focus:ring-offset-2 sm:w-auto"
+>
+  Begin Your Enrolment
+  <span aria-hidden="true">{'->'}</span>
+</Button>
 
             <a
-              href="#intro"
+              href="#curriculum"
               className="inline-flex min-h-11 w-full items-center justify-center gap-3 rounded-full bg-white px-5 text-sm font-semibold text-[#26394f] shadow-[0_6px_18px_rgba(24,52,83,0.08)] transition hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(24,52,83,0.12)] focus:outline-none focus:ring-2 focus:ring-[#1769d5] focus:ring-offset-2 sm:w-auto"
             >
               <span
