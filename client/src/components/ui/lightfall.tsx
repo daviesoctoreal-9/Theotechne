@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Renderer, Program, Mesh, Triangle } from 'ogl';
-import './Lightfall.css';
+import './lightfall.css';
 
 export interface LightfallProps {
   className?: string;
