@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  --primary: 187 70% 45%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 222 47% 11%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%;
+  --accent: 210 40% 94%;
+  --accent-foreground: 222 47% 11%;
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 214 32% 88%;
+  --input: 214 32% 88%;
+  --ring: 187 70% 45%;
+  --radius: 1rem;
+  --sidebar-background: 0 0% 98%;
+  --sidebar-foreground: 222 47% 11%;
+  --sidebar-primary: 187 70% 45%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 210 40% 94%;
+  --sidebar-accent-foreground: 222 47% 11%;
+  --sidebar-border: 214 32% 88%;
+  --sidebar-ring: 187 70% 45%;
+}
+
+@theme inline {
+  --color-background: oklch(1 0 0);
+  --color-foreground: oklch(0.2 0.03 255);
+  --color-card: oklch(1 0 0);
+  --color-card-foreground: oklch(0.2 0.03 255);
+  --color-primary: oklch(0.6 0.12 194);
+  --color-primary-foreground: oklch(1 0 0);
+  --color-secondary: oklch(0.96 0.01 240);
+  --color-secondary-foreground: oklch(0.2 0.03 255);
+  --color-muted: oklch(0.96 0.01 240);
+  --color-muted-foreground: oklch(0.5 0.02 240);
+  --color-accent: oklch(0.93 0.02 240);
+  --color-accent-foreground: oklch(0.2 0.03 255);
+  --color-border: oklch(0.88 0.01 240);
+  --color-input: oklch(0.88 0.01 240);
+  --color-ring: oklch(0.6 0.12 194);
+  --color-sidebar-background: oklch(0.98 0.005 240);
+  --color-sidebar-foreground: oklch(0.2 0.03 255);
+  --color-sidebar-primary: oklch(0.6 0.12 194);
+  --color-sidebar-primary-foreground: oklch(1 0 0);
+  --color-sidebar-accent: oklch(0.93 0.02 240);
+  --color-sidebar-accent-foreground: oklch(0.2 0.03 255);
+  --color-sidebar-border: oklch(0.88 0.01 240);
+  --color-sidebar-ring: oklch(0.6 0.12 194);
+  --font-sans: 'DM Sans', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-background text-foreground font-sans; }
+  button, a { -webkit-tap-highlight-color: transparent; }
+  button:active, a:active { transform: scale(.985); }
+}
+
+@utility container { margin-inline: auto; width: 100%; padding-inline: 1.25rem; @media (width >= 640px) { padding-inline: 2rem; } @media (width >= 1024px) { padding-inline: 3rem; } @media (width >= 1280px) { max-width: 1240px; } }
+
+.font-display { font-family: var(--font-display); }
+.eyebrow { @apply text-[10px] font-semibold uppercase tracking-[0.28em] text-cyan-600; }
+.section-title { @apply font-display text-4xl font-medium leading-[1.08] tracking-[-0.035em] text-slate-900 sm:text-5xl; }
+.section-title span { @apply text-cyan-600; }
+.text-gold, .text-gold\! { color: #e8c879; }
+.bg-gold { background-color: #e8c879; }
+.border-gold\/25 { border-color: rgb(232 200 121 / .25); }
+.border-gold\/30 { border-color: rgb(232 200 121 / .30); }
+.bg-gold\/10 { background-color: rgb(232 200 121 / .10); }
+.pill { @apply rounded-full border border-slate-200 bg-slate-100 px-3 py-2 text-xs text-slate-600; }
+.blueprint-grid { background-image: linear-gradient(rgb(112 190 221 / .12) 1px, transparent 1px), linear-gradient(90deg, rgb(112 190 221 / .12) 1px, transparent 1px); background-size: 32px 32px; }
+.brand-mark { position: relative; display: inline-flex; height: 34px; width: 34px; align-items: flex-end; justify-content: center; gap: 3px; border: 1px solid rgb(129 230 243 / .45); border-radius: 10px; background: linear-gradient(140deg, rgb(129 230 243 / .2), rgb(167 139 250 / .12)); padding: 6px; }
+.brand-mark::before, .brand-mark::after, .brand-mark span { display: block; width: 3px; border-radius: 999px; background: #8deaf3; content: ''; }
+.brand-mark::before { height: 12px; opacity: .65; }
+.brand-mark span { height: 19px; background: #e8c879; }
+.brand-mark::after { height: 25px; background: #c5b5ff; opacity: .8; }
+.dashboard-shell { min-height: calc(100vh - 2rem); padding: 1rem .5rem 4rem; }
+@media (min-width: 640px) { .dashboard-shell { padding: 2.25rem 1.25rem 5rem; } }

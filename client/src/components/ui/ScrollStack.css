@@ -1,0 +1,118 @@
+.scroll-stack-scroller {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: visible;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: scroll-position;
+}
+
+.scroll-stack-inner {
+  padding: 20vh 5rem 50rem;
+  min-height: 100vh;
+}
+
+.scroll-stack-card-wrapper {
+  position: relative;
+}
+
+.scroll-stack-card {
+  transform-origin: top center;
+  will-change: transform, filter;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  height: 28rem;
+  width: 100%;
+  margin: 30px 0;
+  padding: 3rem;
+  border-radius: 40px;
+  box-sizing: border-box;
+  /* Improve mobile performance */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  position: relative;
+}
+
+.scroll-stack-end {
+  width: 100%;
+  height: 1px;
+}
+
+.roadmap-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.roadmap-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(255, 255, 255, 0.14),
+      transparent 30%
+    );
+}
+
+.roadmap-step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.roadmap-card-blue {
+  background: linear-gradient(135deg, #164e9b, #0f2855);
+}
+
+.roadmap-card-indigo {
+  background: linear-gradient(135deg, #3730a3, #1e1b4b);
+}
+
+.roadmap-card-jade {
+  background: linear-gradient(135deg, #176b57, #0b3b32);
+}
+
+.roadmap-card-gold {
+  background: linear-gradient(135deg, #8a6218, #44300d);
+}
+
+.roadmap-card-purple {
+  background: linear-gradient(135deg, #6637a8, #301850);
+}
+
+.roadmap-card-dark {
+  background: linear-gradient(135deg, #1e293b, #0b1220);
+}
+
+@media (max-width: 640px) {
+  .scroll-stack-inner {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .scroll-stack-card {
+    height: 18rem;
+    padding: 2rem;
+    border-radius: 28px;
+  }
+}
