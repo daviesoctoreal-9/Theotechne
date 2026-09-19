@@ -1,4 +1,4 @@
-import { createServer } from "http";
+import { createServer, type Server } from "http";
 import net from "net";
 import { createApp } from "./app";
 import { setupVite } from "./vite";
@@ -19,8 +19,8 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
 }
 
 async function startServer() {
-  const app = createApp();
-  const server = createServer(app);
+  const app = await createApp(); 
+  const server: Server = createServer(app); 
 
   if (process.env.NODE_ENV === "development") {
     await setupVite(app, server);
