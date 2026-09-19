@@ -69,7 +69,10 @@ export function registerGoogleOAuthRoutes(app: Express) {
       if (!profile.sub) throw new Error("Google profile subject missing");
       const openId = `google:${profile.sub}`;
       await db.upsertUser({ openId, name: profile.name ?? null, email: profile.email ?? null, loginMethod: "google", lastSignedIn: new Date() });
-      const sessionToken = await sdk.createSessionToken(openId, { name: profile.name ?? "", expiresInMs: ONE_YEAR_MS });
+      const sessionToken = await sdk.createSessionToken(openId, {
+  name: profile.name || profile.email || "Learner",
+  expiresInMs: ONE_YEAR_MS,
+});
       res.cookie(COOKIE_NAME, sessionToken, { ...getSessionCookieOptions(req), maxAge: ONE_YEAR_MS });
       res.redirect(302, `${saved.origin}/dashboard`);
     } catch (error) {
