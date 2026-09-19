@@ -1,7 +1,7 @@
 import { createServer, type Server } from "http";
 import net from "net";
 import { createApp } from "./app";
-import { setupVite } from "./vite";
+import { setupVite, serveStatic } from "./vite";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -19,11 +19,13 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
 }
 
 async function startServer() {
-  const app = await createApp(); 
-  const server: Server = createServer(app); 
+  const app = createApp(); 
+  const server: Server = createServer(app);
 
   if (process.env.NODE_ENV === "development") {
     await setupVite(app, server);
+  } else {
+    serveStatic(app); 
   }
 
   const preferredPort = parseInt(process.env.PORT || "3000");
